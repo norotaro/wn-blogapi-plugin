@@ -1,6 +1,6 @@
 {
     "name": "norotaro/wn-blogapi-plugin",
-    "desciption": "WinterCMS plugin that exposes endpoints to consume data from Winter/Blog",
+    "desciption": "WinterCMS plugin that exposes endpoints to consume data from Winter.Blog",
     "type": "winter-plugin",
     "keywords": [
         "winter",
