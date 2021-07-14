@@ -22,6 +22,10 @@ class Posts extends Controller
             'exceptPost'       => $request->input('exceptPost'),
         ]);
 
+        if (!isset($params['sort'])) {
+            $scopeParams['sort'] = 'published_at desc';
+        }
+
         if (isset($params['category']) && $category = $this->loadCategory($params['category'])) {
             $scopeParams['category'] = $category->id;
         }
