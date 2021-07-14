@@ -7,4 +7,5 @@ Route::namespace('Norotaro\BlogApi\Api\V1')
             Route::get('/', 'Posts@index');
             Route::get('/{slug}', 'Posts@show');
         });
+        Route::get('/categories', 'Categories@index');
     });
