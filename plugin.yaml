@@ -1,0 +1,6 @@
+plugin:
+    name: 'norotaro.blogapi::lang.plugin.name'
+    description: 'norotaro.blogapi::lang.plugin.description'
+    author: Norotaro
+    icon: wn-icon-link
+    homepage: ''

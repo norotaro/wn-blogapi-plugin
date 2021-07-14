@@ -1,0 +1,31 @@
+{
+    "name": "norotaro/wn-blogapi-plugin",
+    "desciption": "WinterCMS plugin that exposes endpoints to consume data from Winter/Blog",
+    "type": "winter-plugin",
+    "keywords": [
+        "winter",
+        "wintercms",
+        "winter-plugin",
+        "plugin",
+        "blog",
+        "api"
+    ],
+    "homepage": "https://github.com/norotaro/wn-blogapi-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nelson Otazo",
+            "email": "nelson.otazo@gmail.com",
+            "homepage": "https://nelson.otazo.com.py",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "nelson.otazo@gmail.com",
+        "issues": "https://github.com/norotaro/wn-blogapi-plugin/issues",
+        "source": "https://github.com/norotaro/wn-blogapi-plugin"
+    },
+    "require": {
+        "winter/wn-blog-plugin": "^2.0"
+    }
+}
