@@ -4,6 +4,7 @@ namespace Norotaro\BlogApi\Api\V1;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Norotaro\BlogApi\Classes\ApiException;
 use Winter\Blog\Models\Category;
 use Winter\Blog\Models\Post;
 
@@ -47,7 +48,16 @@ class Posts extends Controller
         return response()->json($posts);
     }
 
-    protected function loadCategory($slug)
+    public function show(String $slug)
+    {
+        $post = $this->loadPost($slug);
+
+        if (!$post) throw new ApiException(404, 'Not found');
+
+        return response()->json($post);
+    }
+
+    protected function loadCategory($slug): Category|null
     {
         if (!$slug) {
             return null;
@@ -62,5 +72,25 @@ class Posts extends Controller
         $category = $category->first();
 
         return $category ?: null;
+    }
+
+    protected function loadPost(String $slug): Post|null
+    {
+        $post = new Post;
+        $query = $post->query();
+
+        if ($post->isClassExtendedWith('Winter.Translate.Behaviors.TranslatableModel')) {
+            $query->transWhere('slug', $slug);
+        } else {
+            $query->where('slug', $slug);
+        }
+
+        return $query->with([
+            'categories',
+            'featured_images',
+            'content_images',
+        ])
+            ->isPublished()
+            ->first();
     }
 }
