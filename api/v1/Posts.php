@@ -4,7 +4,7 @@ namespace Norotaro\BlogApi\Api\V1;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Norotaro\BlogApi\Classes\ApiException;
+use Norotaro\Rest\Exceptions\ApiException;
 use Winter\Blog\Models\Category;
 use Winter\Blog\Models\Post;
 
@@ -61,7 +61,7 @@ class Posts extends Controller
         return response()->json($post);
     }
 
-    protected function loadCategory($slug): Category|null
+    protected function loadCategory($slug): ?Category
     {
         if (!$slug) {
             return null;
@@ -78,7 +78,7 @@ class Posts extends Controller
         return $category ?: null;
     }
 
-    protected function loadPost(String $slug): Post|null
+    protected function loadPost(String $slug): ?Post
     {
         $post = new Post;
         $query = $post->query();
